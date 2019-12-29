@@ -1,0 +1,128 @@
+CONSULTA JERARQUICA DE BUSQUEDA
+
+
+/*private void consultarMarcas(final View view, final String categoria){
+
+        Log.d(TAG, "Cargando las marcas en base a la categoría");
+
+        ((MainInterface) mActivity).mostrarProgressBarHorizontalIndeterminated();
+
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<StringJSONAdapter>> call = apiInterface.consultarMarcas(categoria);
+        call.enqueue(new Callback<List<StringJSONAdapter>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<StringJSONAdapter>> call,@NonNull Response<List<StringJSONAdapter>> response) {
+                if(response.isSuccessful() && response.body() != null){
+
+                    List<StringJSONAdapter> listaStringJSON =  response.body();
+
+                    final List<String> spinnerArrayMarcas = new ArrayList<>();
+
+                    String parse_marcas = mContext.getString(R.string.string_spinner_marcas);
+
+                    spinnerArrayMarcas.add(String.format(parse_marcas, Parametros.STRING_CUALQUIERA));
+
+                    for (StringJSONAdapter strJSON:
+                            listaStringJSON) {
+                        spinnerArrayMarcas.add(String.format(parse_marcas, strJSON.getValue()));
+
+                    }
+
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                            mContext, android.R.layout.simple_spinner_item, spinnerArrayMarcas);
+
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    Spinner spinnerMarcas = view.findViewById(R.id.spinnerBusquedaMarcas);
+                    spinnerMarcas.setAdapter(adapter);
+
+                    spinnerMarcas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                            String marca = spinnerArrayMarcas.get(position).split(":")[1];
+
+                            consultarMarcas(view, marca);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
+                }
+                ((MainInterface) mActivity).cerrarProgressBarHorizontalIndeterminated();
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<StringJSONAdapter>> call,@NonNull Throwable t) {
+                Log.e(TAG, t.toString());
+                ((MainInterface) mActivity).cerrarProgressBarHorizontalIndeterminated();
+            }
+        });
+    }
+
+    private void consultarNombresEmpresas(final View view, final String categoria, final String marca){
+
+        Log.d(TAG, "Cargando los nombres de empresas en base a la categoría y marca");
+
+        ((MainInterface) mActivity).mostrarProgressBarHorizontalIndeterminated();
+
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<StringJSONAdapter>> call = apiInterface.consultarNombresEmpresas(categoria, marca);
+        call.enqueue(new Callback<List<StringJSONAdapter>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<StringJSONAdapter>> call,@NonNull Response<List<StringJSONAdapter>> response) {
+                if(response.isSuccessful() && response.body() != null){
+
+                    List<StringJSONAdapter> listaStringJSON =  response.body();
+
+                    final List<String> spinnerArrayNombresEmpresas = new ArrayList<>();
+
+                    String parse_empresas = mContext.getString(R.string.string_spinner_empresas);
+
+                    spinnerArrayNombresEmpresas.add(String.format(parse_empresas, Parametros.STRING_CUALQUIERA));
+
+                    for (StringJSONAdapter strJSON:
+                            listaStringJSON) {
+                        spinnerArrayNombresEmpresas.add(String.format(parse_empresas, strJSON.getValue()));
+
+                    }
+
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                            mContext, android.R.layout.simple_spinner_item, spinnerArrayNombresEmpresas);
+
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    Spinner spinnerEmpresas = view.findViewById(R.id.spinnerBusquedaEmpresas);
+                    spinnerEmpresas.setAdapter(adapter);
+
+                    spinnerEmpresas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                            String marca = spinnerArrayNombresEmpresas.get(position).split(":")[1];
+
+                            consultarMarcas(view, marca);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
+                }
+                ((MainInterface) mActivity).cerrarProgressBarHorizontalIndeterminated();
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<StringJSONAdapter>> call,@NonNull Throwable t) {
+                Log.e(TAG, t.toString());
+                ((MainInterface) mActivity).cerrarProgressBarHorizontalIndeterminated();
+            }
+        });
+    }*/

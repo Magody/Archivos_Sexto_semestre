@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8" /> <!--Formato de codificación para los textos-->
+	<meta name="viewport" content="width=device-width" /> <!--Meta información para hacer responsive-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!--Es el header HTTP puede ser usado para simular respuestas HTTP-->
+	<title>Jonathan Ogden</title> <!--Título de la página-->
+	
+	
+		<link rel="stylesheet" href="https://dunked.cdn.speedyrails.net/assets/prod/6471/style_processed.css?v=1560287333" media="screen" />	<!--[if lte IE 8]><link rel="stylesheet" href="https://dunked.cdn.speedyrails.net/templates/mason/1/css/ie.css?1.2" media="screen" /><![endif]-->
+
+	
+    <script type="text/javascript">
+		document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js'); <!--Reemplaza el nombre de la variable para haga algo cuando Javascript esta disponible-->
+		if (!("ontouchstart" in document.documentElement)) { 
+			document.documentElement.className += " no-touch"; 
+		}
+	</script>
+	
+	
+    <script type="text/javascript">!function(a){var b=navigator.userAgent;a.HTMLPictureElement&&/ecko/.test(b)&&b.match(/rv\:(\d+)/)&&RegExp.$1<41&&addEventListener("resize",function(){var b,c=document.createElement("source"),d=function(a){var b,d,e=a.parentNode;"PICTURE"===e.nodeName.toUpperCase()?(b=c.cloneNode(),e.insertBefore(b,e.firstElementChild),setTimeout(function(){e.removeChild(b)})):(!a._pfLastSize||a.offsetWidth>a._pfLastSize)&&(a._pfLastSize=a.offsetWidth,d=a.sizes,a.sizes+=",100vw",setTimeout(function(){a.sizes=d}))},e=function(){var a,b=document.querySelectorAll("picture > img, img[srcset][sizes]");for(a=0;a<b.length;a++)d(b[a])},f=function(){clearTimeout(b),b=setTimeout(e,99)},g=a.matchMedia&&matchMedia("(orientation: landscape)"),h=function(){f(),g&&g.addListener&&g.addListener(f)};return c.srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",/^[c|i]|d$/.test(document.readyState||"")?h():document.addEventListener("DOMContentLoaded",h),f}())}(window),function(a,b,c){"use strict";function d(a){return" "===a||"	"===a||"\n"===a||"\f"===a||"\r"===a}function e(b,c){var d=new a.Image;return d.onerror=function(){z[b]=!1,aa()},d.onload=function(){z[b]=1===d.width,aa()},d.src=c,"pending"}function f(){L=!1,O=a.devicePixelRatio,M={},N={},s.DPR=O||1,P.width=Math.max(a.innerWidth||0,y.clientWidth),P.height=Math.max(a.innerHeight||0,y.clientHeight),P.vw=P.width/100,P.vh=P.height/100,r=[P.height,P.width,O].join("-"),P.em=s.getEmValue(),P.rem=P.em}function g(a,b,c,d){var e,f,g,h;return"saveData"===A.algorithm?a>2.7?h=c+1:(f=b-c,e=Math.pow(a-.6,1.5),g=f*e,d&&(g+=.1*e),h=a+g):h=c>1?Math.sqrt(a*b):a,h>c}function h(a){var b,c=s.getSet(a),d=!1;"pending"!==c&&(d=r,c&&(b=s.setRes(c),s.applySetCandidate(b,a))),a[s.ns].evaled=d}function i(a,b){return a.res-b.res}function j(a,b,c){var d;return!c&&b&&(c=a[s.ns].sets,c=c&&c[c.length-1]),d=k(b,c),d&&(b=s.makeUrl(b),a[s.ns].curSrc=b,a[s.ns].curCan=d,d.res||_(d,d.set.sizes)),d}function k(a,b){var c,d,e;if(a&&b)for(e=s.parseSet(b),a=s.makeUrl(a),c=0;c<e.length;c++)if(a===s.makeUrl(e[c].url)){d=e[c];break}return d}function l(a,b){var c,d,e,f,g=a.getElementsByTagName("source");for(c=0,d=g.length;d>c;c++)e=g[c],e[s.ns]=!0,f=e.getAttribute("srcset"),f&&b.push({srcset:f,media:e.getAttribute("media"),type:e.getAttribute("type"),sizes:e.getAttribute("sizes")})}function m(a,b){function c(b){var c,d=b.exec(a.substring(m));return d?(c=d[0],m+=c.length,c):void 0}function e(){var a,c,d,e,f,i,j,k,l,m=!1,o={};for(e=0;e<h.length;e++)f=h[e],i=f[f.length-1],j=f.substring(0,f.length-1),k=parseInt(j,10),l=parseFloat(j),W.test(j)&&"w"===i?((a||c)&&(m=!0),0===k?m=!0:a=k):X.test(j)&&"x"===i?((a||c||d)&&(m=!0),0>l?m=!0:c=l):W.test(j)&&"h"===i?((d||c)&&(m=!0),0===k?m=!0:d=k):m=!0;m||(o.url=g,a&&(o.w=a),c&&(o.d=c),d&&(o.h=d),d||c||a||(o.d=1),1===o.d&&(b.has1x=!0),o.set=b,n.push(o))}function f(){for(c(S),i="",j="in descriptor";;){if(k=a.charAt(m),"in descriptor"===j)if(d(k))i&&(h.push(i),i="",j="after descriptor");else{if(","===k)return m+=1,i&&h.push(i),void e();if("("===k)i+=k,j="in parens";else{if(""===k)return i&&h.push(i),void e();i+=k}}else if("in parens"===j)if(")"===k)i+=k,j="in descriptor";else{if(""===k)return h.push(i),void e();i+=k}else if("after descriptor"===j)if(d(k));else{if(""===k)return void e();j="in descriptor",m-=1}m+=1}}for(var g,h,i,j,k,l=a.length,m=0,n=[];;){if(c(T),m>=l)return n;g=c(U),h=[],","===g.slice(-1)?(g=g.replace(V,""),e()):f()}}function n(a){function b(a){function b(){f&&(g.push(f),f="")}function c(){g[0]&&(h.push(g),g=[])}for(var e,f="",g=[],h=[],i=0,j=0,k=!1;;){if(e=a.charAt(j),""===e)return b(),c(),h;if(k){if("*"===e&&"/"===a[j+1]){k=!1,j+=2,b();continue}j+=1}else{if(d(e)){if(a.charAt(j-1)&&d(a.charAt(j-1))||!f){j+=1;continue}if(0===i){b(),j+=1;continue}e=" "}else if("("===e)i+=1;else if(")"===e)i-=1;else{if(","===e){b(),c(),j+=1;continue}if("/"===e&&"*"===a.charAt(j+1)){k=!0,j+=2;continue}}f+=e,j+=1}}}function c(a){return k.test(a)&&parseFloat(a)>=0?!0:l.test(a)?!0:"0"===a||"-0"===a||"+0"===a?!0:!1}var e,f,g,h,i,j,k=/^(?:[+-]?[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?(?:ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmin|vmax|vw)$/i,l=/^calc\((?:[0-9a-z \.\+\-\*\/\(\)]+)\)$/i;for(f=b(a),g=f.length,e=0;g>e;e++)if(h=f[e],i=h[h.length-1],c(i)){if(j=i,h.pop(),0===h.length)return j;if(h=h.join(" "),s.matchesMedia(h))return j}return"100vw"}b.createElement("picture");var o,p,q,r,s={},t=function(){},u=b.createElement("img"),v=u.getAttribute,w=u.setAttribute,x=u.removeAttribute,y=b.documentElement,z={},A={algorithm:""},B="data-pfsrc",C=B+"set",D=navigator.userAgent,E=/rident/.test(D)||/ecko/.test(D)&&D.match(/rv\:(\d+)/)&&RegExp.$1>35,F="currentSrc",G=/\s+\+?\d+(e\d+)?w/,H=/(\([^)]+\))?\s*(.+)/,I=a.picturefillCFG,J="position:absolute;left:0;visibility:hidden;display:block;padding:0;border:none;font-size:1em;width:1em;overflow:hidden;clip:rect(0px, 0px, 0px, 0px)",K="font-size:100%!important;",L=!0,M={},N={},O=a.devicePixelRatio,P={px:1,"in":96},Q=b.createElement("a"),R=!1,S=/^[ \t\n\r\u000c]+/,T=/^[, \t\n\r\u000c]+/,U=/^[^ \t\n\r\u000c]+/,V=/[,]+$/,W=/^\d+$/,X=/^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/,Y=function(a,b,c,d){a.addEventListener?a.addEventListener(b,c,d||!1):a.attachEvent&&a.attachEvent("on"+b,c)},Z=function(a){var b={};return function(c){return c in b||(b[c]=a(c)),b[c]}},$=function(){var a=/^([\d\.]+)(em|vw|px)$/,b=function(){for(var a=arguments,b=0,c=a[0];++b in a;)c=c.replace(a[b],a[++b]);return c},c=Z(function(a){return"return "+b((a||"").toLowerCase(),/\band\b/g,"&&",/,/g,"||",/min-([a-z-\s]+):/g,"e.$1>=",/max-([a-z-\s]+):/g,"e.$1<=",/calc([^)]+)/g,"($1)",/(\d+[\.]*[\d]*)([a-z]+)/g,"($1 * e.$2)",/^(?!(e.[a-z]|[0-9\.&=|><\+\-\*\(\)\/])).*/gi,"")+";"});return function(b,d){var e;if(!(b in M))if(M[b]=!1,d&&(e=b.match(a)))M[b]=e[1]*P[e[2]];else try{M[b]=new Function("e",c(b))(P)}catch(f){}return M[b]}}(),_=function(a,b){return a.w?(a.cWidth=s.calcListLength(b||"100vw"),a.res=a.w/a.cWidth):a.res=a.d,a},aa=function(a){var c,d,e,f=a||{};if(f.elements&&1===f.elements.nodeType&&("IMG"===f.elements.nodeName.toUpperCase()?f.elements=[f.elements]:(f.context=f.elements,f.elements=null)),c=f.elements||s.qsa(f.context||b,f.reevaluate||f.reselect?s.sel:s.selShort),e=c.length){for(s.setupRun(f),R=!0,d=0;e>d;d++)s.fillImg(c[d],f);s.teardownRun(f)}};o=a.console&&console.warn?function(a){console.warn(a)}:t,F in u||(F="src"),z["image/jpeg"]=!0,z["image/gif"]=!0,z["image/png"]=!0,z["image/svg+xml"]=b.implementation.hasFeature("http://wwwindow.w3.org/TR/SVG11/feature#Image","1.1"),s.ns=("pf"+(new Date).getTime()).substr(0,9),s.supSrcset="srcset"in u,s.supSizes="sizes"in u,s.supPicture=!!a.HTMLPictureElement,s.supSrcset&&s.supPicture&&!s.supSizes&&!function(a){u.srcset="data:,a",a.src="data:,a",s.supSrcset=u.complete===a.complete,s.supPicture=s.supSrcset&&s.supPicture}(b.createElement("img")),s.selShort="picture>img,img[srcset]",s.sel=s.selShort,s.cfg=A,s.supSrcset&&(s.sel+=",img["+C+"]"),s.DPR=O||1,s.u=P,s.types=z,q=s.supSrcset&&!s.supSizes,s.setSize=t,s.makeUrl=Z(function(a){return Q.href=a,Q.href}),s.qsa=function(a,b){return a.querySelectorAll(b)},s.matchesMedia=function(){return a.matchMedia&&(matchMedia("(min-width: 0.1em)")||{}).matches?s.matchesMedia=function(a){return!a||matchMedia(a).matches}:s.matchesMedia=s.mMQ,s.matchesMedia.apply(this,arguments)},s.mMQ=function(a){return a?$(a):!0},s.calcLength=function(a){var b=$(a,!0)||!1;return 0>b&&(b=!1),b},s.supportsType=function(a){return a?z[a]:!0},s.parseSize=Z(function(a){var b=(a||"").match(H);return{media:b&&b[1],length:b&&b[2]}}),s.parseSet=function(a){return a.cands||(a.cands=m(a.srcset,a)),a.cands},s.getEmValue=function(){var a;if(!p&&(a=b.body)){var c=b.createElement("div"),d=y.style.cssText,e=a.style.cssText;c.style.cssText=J,y.style.cssText=K,a.style.cssText=K,a.appendChild(c),p=c.offsetWidth,a.removeChild(c),p=parseFloat(p,10),y.style.cssText=d,a.style.cssText=e}return p||16},s.calcListLength=function(a){if(!(a in N)||A.uT){var b=s.calcLength(n(a));N[a]=b?b:P.width}return N[a]},s.setRes=function(a){var b;if(a){b=s.parseSet(a);for(var c=0,d=b.length;d>c;c++)_(b[c],a.sizes)}return b},s.setRes.res=_,s.applySetCandidate=function(a,b){if(a.length){var c,d,e,f,h,k,l,m,n,o=b[s.ns],p=s.DPR;if(k=o.curSrc||b[F],l=o.curCan||j(b,k,a[0].set),l&&l.set===a[0].set&&(n=E&&!b.complete&&l.res-.1>p,n||(l.cached=!0,l.res>=p&&(h=l))),!h)for(a.sort(i),f=a.length,h=a[f-1],d=0;f>d;d++)if(c=a[d],c.res>=p){e=d-1,h=a[e]&&(n||k!==s.makeUrl(c.url))&&g(a[e].res,c.res,p,a[e].cached)?a[e]:c;break}h&&(m=s.makeUrl(h.url),o.curSrc=m,o.curCan=h,m!==k&&s.setSrc(b,h),s.setSize(b))}},s.setSrc=function(a,b){var c;a.src=b.url,"image/svg+xml"===b.set.type&&(c=a.style.width,a.style.width=a.offsetWidth+1+"px",a.offsetWidth+1&&(a.style.width=c))},s.getSet=function(a){var b,c,d,e=!1,f=a[s.ns].sets;for(b=0;b<f.length&&!e;b++)if(c=f[b],c.srcset&&s.matchesMedia(c.media)&&(d=s.supportsType(c.type))){"pending"===d&&(c=d),e=c;break}return e},s.parseSets=function(a,b,d){var e,f,g,h,i=b&&"PICTURE"===b.nodeName.toUpperCase(),j=a[s.ns];(j.src===c||d.src)&&(j.src=v.call(a,"src"),j.src?w.call(a,B,j.src):x.call(a,B)),(j.srcset===c||d.srcset||!s.supSrcset||a.srcset)&&(e=v.call(a,"srcset"),j.srcset=e,h=!0),j.sets=[],i&&(j.pic=!0,l(b,j.sets)),j.srcset?(f={srcset:j.srcset,sizes:v.call(a,"sizes")},j.sets.push(f),g=(q||j.src)&&G.test(j.srcset||""),g||!j.src||k(j.src,f)||f.has1x||(f.srcset+=", "+j.src,f.cands.push({url:j.src,d:1,set:f}))):j.src&&j.sets.push({srcset:j.src,sizes:null}),j.curCan=null,j.curSrc=c,j.supported=!(i||f&&!s.supSrcset||g),h&&s.supSrcset&&!j.supported&&(e?(w.call(a,C,e),a.srcset=""):x.call(a,C)),j.supported&&!j.srcset&&(!j.src&&a.src||a.src!==s.makeUrl(j.src))&&(null===j.src?a.removeAttribute("src"):a.src=j.src),j.parsed=!0},s.fillImg=function(a,b){var c,d=b.reselect||b.reevaluate;a[s.ns]||(a[s.ns]={}),c=a[s.ns],(d||c.evaled!==r)&&((!c.parsed||b.reevaluate)&&s.parseSets(a,a.parentNode,b),c.supported?c.evaled=r:h(a))},s.setupRun=function(){(!R||L||O!==a.devicePixelRatio)&&f()},s.supPicture?(aa=t,s.fillImg=t):!function(){var c,d=a.attachEvent?/d$|^c/:/d$|^c|^i/,e=function(){var a=b.readyState||"";f=setTimeout(e,"loading"===a?200:999),b.body&&(s.fillImgs(),c=c||d.test(a),c&&clearTimeout(f))},f=setTimeout(e,b.body?9:99),g=function(a,b){var c,d,e=function(){var f=new Date-d;b>f?c=setTimeout(e,b-f):(c=null,a())};return function(){d=new Date,c||(c=setTimeout(e,b))}},h=y.clientHeight,i=function(){L=Math.max(a.innerWidth||0,y.clientWidth)!==P.width||y.clientHeight!==h,h=y.clientHeight,L&&s.fillImgs()};Y(a,"resize",g(i,99)),Y(b,"readystatechange",e)}(),s.picturefill=aa,s.fillImgs=aa,s.teardownRun=t,aa._=s,a.picturefillCFG={pf:s,push:function(a){var b=a.shift();"function"==typeof s[b]?s[b].apply(s,a):(A[b]=a[0],R&&s.fillImgs({reselect:!0}))}};for(;I&&I.length;)a.picturefillCFG.push(I.shift());a.picturefill=aa,"object"==typeof module&&"object"==typeof module.exports?module.exports=aa:"function"==typeof define&&define.amd&&define("picturefill",function(){return aa}),s.supPicture||(z["image/webp"]=e("image/webp","data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA=="))}(window,document),function(a){if("function"==typeof define&&define.amd){var b="[history"+(new Date).getTime()+"]",c=requirejs.onError;a.toString=function(){return b},requirejs.onError=function(a){-1===a.message.indexOf(b)&&c.call(requirejs,a)},define([],a)}return"object"!=typeof exports||"undefined"==typeof module?a():void(module.exports=a())}(function(){function a(){}function b(a,c,d){var e=/(?:(\w+\:))?(?:\/\/(?:[^@]*@)?([^\/:\?#]+)(?::([0-9]+))?)?([^\?#]*)(?:(\?[^#]+)|\?)?(?:(#.*))?/;if(null==a||""===a||c)a=c?a:w.href,(!B||d)&&(a=a.replace(/^[^#]*/,"")||"#",a=w.protocol.replace(/:.*$|$/,":")+"//"+w.host+M.basepath+a.replace(new RegExp("^#[/]?(?:"+M.type+")?"),""));else{var f=b(),g=s.getElementsByTagName("base")[0];!d&&g&&g.getAttribute("href")&&(g.href=g.href,f=b(g.href,null,!0));var h=f._pathname,i=f._protocol;a=""+a,a=/^(?:\w+\:)?\/\//.test(a)?0===a.indexOf("/")?i+a:a:i+"//"+f._host+(0===a.indexOf("/")?a:0===a.indexOf("?")?h+a:0===a.indexOf("#")?h+f._search+a:h.replace(/[^\/]+$/g,"")+a)}O.href=a;var j=e.exec(O.href),k=j[2]+(j[3]?":"+j[3]:""),l=j[4]||"/",m=j[5]||"",n="#"===j[6]?"":j[6]||"",o=l+m+n,p=l.replace(new RegExp("^"+M.basepath,"i"),M.type)+m;return{_href:j[1]+"//"+k+o,_protocol:j[1],_host:k,_hostname:j[2],_port:j[3]||"",_pathname:l,_search:m,_hash:n,_relative:o,_nohash:p,_special:p+n}}function c(){var a;try{a=r.sessionStorage,a.setItem(N+"t","1"),a.removeItem(N+"t")}catch(b){a={getItem:function(a){var b=s.cookie.split(a+"=");return b.length>1&&b.pop().split(";").shift()||"null"},setItem:function(a,b){var c={};(c[w.href]=y.state)&&(s.cookie=a+"="+v.stringify(c))}}}try{U=v.parse(a.getItem(N))||{}}catch(b){U={}}J(F+"unload",function(){a.setItem(N,v.stringify(U))},!1)}function d(b,c,d,e){var f=0;d||(d={set:a},f=1);var g=!d.set,h=!d.get,i={configurable:!0,set:function(){g=1},get:function(){h=1}};try{D(b,c,i),b[c]=b[c],D(b,c,d)}catch(j){}if(!(g&&h||(b.__defineGetter__&&(b.__defineGetter__(c,i.get),b.__defineSetter__(c,i.set),b[c]=b[c],d.get&&b.__defineGetter__(c,d.get),d.set&&b.__defineSetter__(c,d.set)),g&&h))){if(f)return!1;if(b===r){try{var k=b[c];b[c]=null}catch(j){}if("execScript"in r)r.execScript("Public "+c,"VBScript"),r.execScript("var "+c+";","JavaScript");else try{D(b,c,{value:a})}catch(j){"onpopstate"===c&&(J("popstate",d=function(){K("popstate",d,!1);var a=b.onpopstate;b.onpopstate=null,setTimeout(function(){b.onpopstate=a},1)},!1),R=0)}b[c]=k}else try{try{var l=u.create(b);D(u.getPrototypeOf(l)===b?l:b,c,d);for(var m in b)"function"==typeof b[m]&&(l[m]=b[m].bind(b));try{e.call(l,l,b)}catch(j){}b=l}catch(j){D(b.constructor.prototype,c,d)}}catch(j){return!1}}return b}function e(a,b,c){return c=c||{},a=a===$?w:a,c.set=c.set||function(c){a[b]=c},c.get=c.get||function(){return a[b]},c}function f(a,b,c){a in V?V[a].push(b):arguments.length>3?J(a,b,c,arguments[3]):J(a,b,c)}function g(a,b,c){var d=V[a];if(d){for(var e=d.length;e--;)if(d[e]===b){d.splice(e,1);break}}else K(a,b,c)}function h(b,c){var e=(""+("string"==typeof b?b:b.type)).replace(/^on/,""),f=V[e];if(f){if(c="string"==typeof b?c:b,null==c.target)for(var g=["target","currentTarget","srcElement","type"];b=g.pop();)c=d(c,b,{get:"type"===b?function(){return e}:function(){return r}});R&&(("popstate"===e?r.onpopstate:r.onhashchange)||a).call(r,c);for(var h=0,i=f.length;i>h;h++)f[h].call(r,c);return!0}return L(b,c)}function i(){var a=s.createEvent?s.createEvent("Event"):s.createEventObject();a.initEvent?a.initEvent("popstate",!1,!1):a.type="popstate",a.state=y.state,h(a)}function j(){S&&(S=!1,i())}function k(a,c,d,e){if(B)P=w.href;else{0===T&&(T=2);var f=b(c,2===T&&-1!==(""+c).indexOf("#"));f._relative!==b()._relative&&(P=e,d?w.replace("#"+f._special):w.hash=f._special)}!C&&a&&(U[w.href]=a),S=!1}function l(a){var c=P;if(P=w.href,c){Q!==w.href&&i(),a=a||r.event;var d=b(c,!0),e=b();a.oldURL||(a.oldURL=d._href,a.newURL=e._href),d._hash!==e._hash&&h(a)}}function m(a){setTimeout(function(){J("popstate",function(a){Q=w.href,C||(a=d(a,"state",{get:function(){return y.state}})),h(a)},!1)},0),!B&&a!==!0&&"location"in y&&(p(E.hash),j())}function n(a){for(;a;){if("A"===a.nodeName)return a;a=a.parentNode}}function o(a){var c=a||r.event,d=n(c.target||c.srcElement),e="defaultPrevented"in c?c.defaultPrevented:c.returnValue===!1;if(d&&"A"===d.nodeName&&!e){var f=b(),g=b(d.getAttribute("href",2)),h=f._href.split("#").shift()===g._href.split("#").shift();h&&g._hash&&(f._hash!==g._hash&&(E.hash=g._hash),p(g._hash),c.preventDefault?c.preventDefault():c.returnValue=!1)}}function p(a){var b=s.getElementById(a=(a||"").replace(/^#/,""));if(b&&b.id===a&&"A"===b.nodeName){var c=b.getBoundingClientRect();r.scrollTo(t.scrollLeft||0,c.top+(t.scrollTop||0)-(t.clientTop||0))}}function q(){var a=s.getElementsByTagName("script"),f=(a[a.length-1]||{}).src||"",g=-1!==f.indexOf("?")?f.split("?").pop():"";g.replace(/(\w+)(?:=([^&]*))?/g,function(a,b,c){M[b]=(c||"").replace(/^(0|false)$/,"")}),J(F+"hashchange",l,!1);var h=[$,E,X,r,Z,y];C&&delete Z.state;for(var i=0;i<h.length;i+=2)for(var j in h[i])if(h[i].hasOwnProperty(j))if("function"==typeof h[i][j])h[i+1][j]=h[i][j];else{var k=e(h[i],j,h[i][j]);if(!d(h[i+1],j,k,function(a,b){b===y&&(r.history=y=h[i+1]=a)}))return K(F+"hashchange",l,!1),!1;h[i+1]===r&&(V[j]=V[j.substr(2)]=[])}return y.setup(),M.redirect&&y.redirect(),M.init&&(T=1),!C&&v&&c(),B||s[G](F+"click",o,!1),"complete"===s.readyState?m(!0):(B||b()._relative===M.basepath||(S=!0),J(F+"load",m,!1)),!0}var r=("object"==typeof window?window:this)||{};if(!r.history||"emulate"in r.history)return r.history;var s=r.document,t=s.documentElement,u=r.Object,v=r.JSON,w=r.location,x=r.history,y=x,z=x.pushState,A=x.replaceState,B=!!z,C="state"in x,D=u.defineProperty,E=d({},"t")?{}:s.createElement("a"),F="",G=r.addEventListener?"addEventListener":(F="on")&&"attachEvent",H=r.removeEventListener?"removeEventListener":"detachEvent",I=r.dispatchEvent?"dispatchEvent":"fireEvent",J=r[G],K=r[H],L=r[I],M={basepath:"/",redirect:0,type:"/",init:0},N="__historyAPI__",O=s.createElement("a"),P=w.href,Q="",R=1,S=!1,T=0,U={},V={},W=s.title,X={onhashchange:null,onpopstate:null},Y=function(a,b){var c=r.history!==x;c&&(r.history=x),a.apply(x,b),c&&(r.history=y)},Z={setup:function(a,b,c){M.basepath=(""+(null==a?M.basepath:a)).replace(/(?:^|\/)[^\/]*$/,"/"),M.type=null==b?M.type:b,M.redirect=null==c?M.redirect:!!c},redirect:function(a,c){if(y.setup(c,a),c=M.basepath,r.top==r.self){var d=b(null,!1,!0)._relative,e=w.pathname+w.search;B?(e=e.replace(/([^\/])$/,"$1/"),d!=c&&new RegExp("^"+c+"$","i").test(e)&&w.replace(d)):e!=c&&(e=e.replace(/([^\/])\?/,"$1/?"),new RegExp("^"+c,"i").test(e)&&w.replace(c+"#"+e.replace(new RegExp("^"+c,"i"),M.type)+w.hash))}},pushState:function(a,b,c){var d=s.title;null!=W&&(s.title=W),z&&Y(z,arguments),k(a,c),s.title=d,W=b},replaceState:function(a,b,c){var d=s.title;null!=W&&(s.title=W),delete U[w.href],A&&Y(A,arguments),k(a,c,!0),s.title=d,W=b},location:{set:function(a){0===T&&(T=1),r.location=a},get:function(){return 0===T&&(T=1),B?w:E}},state:{get:function(){return U[w.href]||null}}},$={assign:function(a){0===(""+a).indexOf("#")?k(null,a):w.assign(a)},reload:function(){w.reload()},replace:function(a){0===(""+a).indexOf("#")?k(null,a,!0):w.replace(a)},toString:function(){return this.href},href:{get:function(){return b()._href}},protocol:null,host:null,hostname:null,port:null,pathname:{get:function(){return b()._pathname}},search:{get:function(){return b()._search}},hash:{set:function(a){k(null,(""+a).replace(/^(#|)/,"#"),!1,P)},get:function(){return b()._hash}}};return q()?(y.emulate=!B,r[G]=f,r[H]=g,r[I]=h,y):void 0});</script><!--Ejecuta una serie de comandos que ejecutan una serie de funciones que tienen distintos propositos entre ellos comprobar patrones de variables, verificar la existen de referencias, guardar y cargar datos e imagenes, entre otras -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:300,400,500,600,700" type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" type="text/css" />
+
+
+		<script>this.top.location !== this.location && (this.top.location = this.location);</script>
+  	
+  	<!-- BEGIN Open Graph -->
+			<meta property="og:site_name" content="Jonathan Ogden" />
+							<meta property="og:url" content="https://www.ogvidius.com/" />
+		<!-- END Open Graph -->
+
+</head>
+<body class="page-home is_home">
+	<div class="content-wrapper">
+		<header id="header">
+			<div class="wrap">
+				<div class="site-title">
+					<a href="https://www.ogvidius.com/">
+											Jonathan Ogden
+										</a>
+				</div>   <!-- define un contenedor o seccion para agrupar las lineas de html -->
+												<svg style="display: none;" xmlns="http://www.w3.org/2000/svg"><symbol id="dribbble-logo" viewBox="0 0 46 46" xml:space="preserve"><title>Dribbble</title><g><path d="M33.977303,39.290258 C33.777151,38.105709 32.730405,32.33982 30.152761,25.262273 C36.495443,24.248104 41.988828,25.987066 42.394543,26.119584 C41.520903,31.593392 38.386076,36.312658 33.977303,39.290258 L33.977303,39.290258 L33.977303,39.290258 Z M23.001352,42.643777 C18.246369,42.643777 13.886282,40.953495 10.486388,38.140867 C10.746046,38.351814 10.927265,38.484332 10.927265,38.484332 C10.927265,38.484332 14.692303,30.27362 26.341742,26.21424 C26.385018,26.198013 26.430999,26.187195 26.474275,26.173673 C29.238549,33.353989 30.377256,39.368687 30.669371,41.086013 C28.313518,42.08666 25.719645,42.643777 23.001352,42.643777 L23.001352,42.643777 L23.001352,42.643777 Z M3.356618,22.998648 C3.356618,22.790405 3.367437,22.584867 3.372846,22.379329 C3.721762,22.387442 13.426471,22.606502 23.539601,19.580222 C24.102193,20.680934 24.640442,21.803281 25.13271,22.920219 C24.873052,22.990534 24.616099,23.068963 24.359146,23.155506 C13.759158,26.57934 8.382078,36.115233 8.382078,36.115233 C8.382078,36.115233 8.390192,36.123346 8.390192,36.126051 C5.260775,32.645423 3.356618,28.045153 3.356618,22.998648 L3.356618,22.998648 L3.356618,22.998648 Z M14.619274,5.238521 C14.881637,5.587395 18.514141,10.512199 21.914035,16.553942 C12.482507,19.060968 4.295173,18.960903 3.778562,18.95279 C5.052508,12.867776 9.139413,7.823976 14.619274,5.238521 L14.619274,5.238521 L14.619274,5.238521 Z M18.295055,3.929567 C18.295055,3.932271 18.29235,3.934976 18.29235,3.934976 C18.29235,3.934976 18.268007,3.940385 18.232845,3.945793 C18.254483,3.940385 18.273417,3.93768 18.295055,3.929567 L18.295055,3.929567 L18.295055,3.929567 Z M35.973423,8.262097 C35.924737,8.335117 33.128006,12.594626 25.711531,15.372097 C22.354913,9.203245 18.665608,4.302781 18.370788,3.91334 C19.855706,3.553648 21.405539,3.358928 23.001352,3.358928 C27.972717,3.358928 32.514024,5.214181 35.973423,8.262097 L35.973423,8.262097 L35.973423,8.262097 Z M42.637973,22.803927 C42.353972,22.741725 35.705651,21.311071 28.957253,22.160268 C28.816605,21.824916 28.678662,21.48686 28.532604,21.148804 C28.124184,20.186019 27.683307,19.234053 27.226201,18.298313 C34.983477,15.131401 38.131828,10.579811 38.169695,10.525722 C40.923149,13.871127 42.591992,18.144159 42.637973,22.803927 L42.637973,22.803927 L42.637973,22.803927 Z M45.53478,18.371333 C45.231846,16.894703 44.777445,15.437004 44.19051,14.046916 C43.617099,12.683873 42.900335,11.36951 42.069971,10.14169 C41.250426,8.924687 40.303757,7.778 39.265126,6.739491 C38.22379,5.698277 37.079673,4.754424 35.859822,3.932271 C34.631857,3.0993 33.31734,2.38803 31.954137,1.809277 C30.563885,1.225116 29.10872,0.770768 27.631916,0.470574 C26.117246,0.159563 24.559299,0 23.001352,0 C21.440701,0 19.882754,0.159563 18.368084,0.470574 C16.89128,0.770768 15.436115,1.225116 14.045863,1.809277 C12.68266,2.38803 11.368143,3.0993 10.137473,3.932271 C8.920327,4.754424 7.77621,5.698277 6.734874,6.739491 C5.696243,7.778 4.752278,8.924687 3.930029,10.14169 C3.099665,11.36951 2.382901,12.683873 1.80949,14.046916 C1.219851,15.437004 0.768154,16.894703 0.46522,18.371333 C0.156877,19.883121 0,21.440884 0,22.998648 C0,24.56182 0.156877,26.119584 0.46522,27.634076 C0.768154,29.110706 1.219851,30.565701 1.80949,31.953084 C2.382901,33.316127 3.099665,34.635899 3.930029,35.863719 C4.752278,37.080722 5.696243,38.222 6.734874,39.265918 C7.77621,40.304427 8.920327,41.245576 10.137473,42.070433 C11.368143,42.9007 12.68266,43.614675 14.045863,44.190723 C15.436115,44.780293 16.89128,45.229232 18.368084,45.529426 C19.882754,45.843142 21.440701,46 23.001352,46 C24.559299,46 26.117246,45.843142 27.631916,45.529426 C29.10872,45.229232 30.563885,44.780293 31.954137,44.190723 C33.31734,43.614675 34.631857,42.9007 35.859822,42.070433 C37.079673,41.245576 38.22379,40.304427 39.265126,39.265918 C40.303757,38.222 41.250426,37.080722 42.069971,35.863719 C42.900335,34.635899 43.617099,33.316127 44.19051,31.953084 C44.777445,30.565701 45.231846,29.110706 45.53478,27.634076 C45.843123,26.119584 46,24.56182 46,22.998648 C46,21.440884 45.843123,19.883121 45.53478,18.371333 L45.53478,18.371333 L45.53478,18.371333 Z"></path></g></symbol><symbol id="facebook-logo" viewBox="0 0 48 48" xml:space="preserve"><title>Facebook</title><g><path d="M25.638355,48 L2.649232,48 C1.185673,48 0,46.813592 0,45.350603 L0,2.649211 C0,1.18585 1.185859,0 2.649232,0 L45.350955,0 C46.813955,0 48,1.18585 48,2.649211 L48,45.350603 C48,46.813778 46.813769,48 45.350955,48 L33.119305,48 L33.119305,29.411755 L39.358521,29.411755 L40.292755,22.167586 L33.119305,22.167586 L33.119305,17.542641 C33.119305,15.445287 33.701712,14.01601 36.70929,14.01601 L40.545311,14.014333 L40.545311,7.535091 C39.881886,7.446808 37.604784,7.24957 34.955552,7.24957 C29.424834,7.24957 25.638355,10.625526 25.638355,16.825209 L25.638355,22.167586 L19.383122,22.167586 L19.383122,29.411755 L25.638355,29.411755 L25.638355,48 L25.638355,48 Z"></path></g></symbol><symbol id="instagram-logo" viewBox="0 0 48 48" xml:space="preserve"><title>Instagram</title><g><path d="M24.000048,0 C17.481991,0 16.664686,0.027628 14.104831,0.144427 C11.550311,0.260939 9.805665,0.666687 8.279088,1.260017 C6.700876,1.873258 5.362454,2.693897 4.028128,4.028128 C2.693897,5.362454 1.873258,6.700876 1.260017,8.279088 C0.666687,9.805665 0.260939,11.550311 0.144427,14.104831 C0.027628,16.664686 0,17.481991 0,24.000048 C0,30.518009 0.027628,31.335314 0.144427,33.895169 C0.260939,36.449689 0.666687,38.194335 1.260017,39.720912 C1.873258,41.299124 2.693897,42.637546 4.028128,43.971872 C5.362454,45.306103 6.700876,46.126742 8.279088,46.740079 C9.805665,47.333313 11.550311,47.739061 14.104831,47.855573 C16.664686,47.972372 17.481991,48 24.000048,48 C30.518009,48 31.335314,47.972372 33.895169,47.855573 C36.449689,47.739061 38.194335,47.333313 39.720912,46.740079 C41.299124,46.126742 42.637546,45.306103 43.971872,43.971872 C45.306103,42.637546 46.126742,41.299124 46.740079,39.720912 C47.333313,38.194335 47.739061,36.449689 47.855573,33.895169 C47.972372,31.335314 48,30.518009 48,24.000048 C48,17.481991 47.972372,16.664686 47.855573,14.104831 C47.739061,11.550311 47.333313,9.805665 46.740079,8.279088 C46.126742,6.700876 45.306103,5.362454 43.971872,4.028128 C42.637546,2.693897 41.299124,1.873258 39.720912,1.260017 C38.194335,0.666687 36.449689,0.260939 33.895169,0.144427 C31.335314,0.027628 30.518009,0 24.000048,0 Z M24.000048,4.324317 C30.40826,4.324317 31.167356,4.348801 33.69806,4.464266 C36.038036,4.570966 37.308818,4.961946 38.154513,5.290621 C39.274771,5.725997 40.074262,6.246066 40.91405,7.08595 C41.753934,7.925738 42.274003,8.725229 42.709379,9.845487 C43.038054,10.691182 43.429034,11.961964 43.535734,14.30194 C43.651199,16.832644 43.675683,17.59174 43.675683,24.000048 C43.675683,30.40826 43.651199,31.167356 43.535734,33.69806 C43.429034,36.038036 43.038054,37.308818 42.709379,38.154513 C42.274003,39.274771 41.753934,40.074262 40.91405,40.91405 C40.074262,41.753934 39.274771,42.274003 38.154513,42.709379 C37.308818,43.038054 36.038036,43.429034 33.69806,43.535734 C31.167737,43.651199 30.408736,43.675683 24.000048,43.675683 C17.591264,43.675683 16.832358,43.651199 14.30194,43.535734 C11.961964,43.429034 10.691182,43.038054 9.845487,42.709379 C8.725229,42.274003 7.925738,41.753934 7.08595,40.91405 C6.246161,40.074262 5.725997,39.274771 5.290621,38.154513 C4.961946,37.308818 4.570966,36.038036 4.464266,33.69806 C4.348801,31.167356 4.324317,30.40826 4.324317,24.000048 C4.324317,17.59174 4.348801,16.832644 4.464266,14.30194 C4.570966,11.961964 4.961946,10.691182 5.290621,9.845487 C5.725997,8.725229 6.246066,7.925738 7.08595,7.08595 C7.925738,6.246066 8.725229,5.725997 9.845487,5.290621 C10.691182,4.961946 11.961964,4.570966 14.30194,4.464266 C16.832644,4.348801 17.59174,4.324317 24.000048,4.324317 Z M24.000048,11.675683 C17.193424,11.675683 11.675683,17.193424 11.675683,24.000048 C11.675683,30.806576 17.193424,36.324317 24.000048,36.324317 C30.806576,36.324317 36.324317,30.806576 36.324317,24.000048 C36.324317,17.193424 30.806576,11.675683 24.000048,11.675683 Z M24.000048,32 C19.581701,32 16,28.418299 16,24.000048 C16,19.581701 19.581701,16 24.000048,16 C28.418299,16 32,19.581701 32,24.000048 C32,28.418299 28.418299,32 24.000048,32 Z M39.691284,11.188768 C39.691284,12.779365 38.401829,14.068724 36.811232,14.068724 C35.22073,14.068724 33.931276,12.779365 33.931276,11.188768 C33.931276,9.598171 35.22073,8.308716 36.811232,8.308716 C38.401829,8.308716 39.691284,9.598171 39.691284,11.188768 Z"></path></g></symbol><symbol id="linkedin-logo" viewBox="0 0 48 48" xml:space="preserve"><title>LinkedIn</title><g><path d="M44.4440988,0 C46.4013777,0 48,1.5492903 48,3.4585706 L48,44.5347629 C48,46.4467098 46.4013777,47.9986667 44.4440988,47.9986667 L3.53990167,47.9986667 C1.58662259,47.9986667 0,46.4467098 0,44.5347629 L0,3.4585706 C0,1.5492903 1.58662259,0 3.53990167,0 L44.4440988,0 Z M40.8988639,40.9001972 L40.8988639,28.3365462 C40.8988639,22.1673842 39.5669009,17.4248493 32.363101,17.4248493 C28.9005305,17.4248493 26.5765951,19.3234632 25.6272881,21.1247465 L25.5286242,21.1247465 L25.5286242,17.9955001 L18.7048138,17.9955001 L18.7048138,40.9001972 L25.8152829,40.9001972 L25.8152829,29.5698453 C25.8152829,26.580595 26.3806005,23.6886753 30.0858309,23.6886753 C33.7350629,23.6886753 33.7857282,27.1059137 33.7857282,29.7618399 L33.7857282,40.9001972 L40.8988639,40.9001972 Z M10.67837,14.8622538 C12.9556401,14.8622538 14.8049221,13.0129719 14.8049221,10.7343685 C14.8049221,8.45843171 12.9556401,6.60781645 10.67837,6.60781645 C8.3904336,6.60781645 6.54781812,8.45843171 6.54781812,10.7343685 C6.54781812,13.0129719 8.3904336,14.8622538 10.67837,14.8622538 Z M7.11313575,40.9001972 L14.2396045,40.9001972 L14.2396045,17.9955001 L7.11313575,17.9955001 L7.11313575,40.9001972 Z"></path></g></symbol><symbol id="twitter-logo" viewBox="0 0 48 40" xml:space="preserve"><title>Twitter</title><g><path d="M48,4.735283 C46.236309,5.538462 44.337383,6.081618 42.345483,6.324305 C44.379644,5.076201 45.940482,3.097147 46.675823,0.739617 C44.771263,1.895269 42.666667,2.736006 40.418384,3.18671 C38.626519,1.224991 36.065504,0 33.231203,0 C27.796443,0 23.387216,4.521488 23.387216,10.097508 C23.387216,10.88913 23.471738,11.657638 23.640782,12.397255 C15.456242,11.975442 8.201444,7.959552 3.341433,1.843265 C2.493397,3.339834 2.008804,5.076201 2.008804,6.925244 C2.008804,10.426869 3.747139,13.518238 6.389857,15.329722 C4.778306,15.280607 3.256911,14.821235 1.9271,14.070061 L1.9271,14.194294 C1.9271,19.08848 5.322064,23.17082 9.8299,24.095341 C9.004402,24.33225 8.133826,24.450704 7.235077,24.450704 C6.601162,24.450704 5.981335,24.390033 5.381229,24.271578 C6.634971,28.28169 10.269414,31.2026 14.580032,31.280607 C11.210424,33.99061 6.961789,35.605634 2.349709,35.605634 C1.555203,35.605634 0.769149,35.559408 0,35.466956 C4.358514,38.327194 9.53689,40 15.095615,40 C33.211481,40 43.114633,24.615385 43.114633,11.270495 C43.114633,10.831347 43.106181,10.392199 43.089276,9.961719 C45.013559,8.537378 46.684275,6.760563 48,4.735283"></path></g></symbol><symbol id="vimeo-logo" viewBox="0 0 48 41" xml:space="preserve"><title>Vimeo</title><g><path d="M47.975851,9.479329 C47.767002,14.100014 44.498808,20.41644 38.193846,28.431401 C31.668746,36.81233 26.13991,41 21.621448,41 C18.827396,41 16.459507,38.452198 14.526249,33.339832 C13.230825,28.649305 11.943867,23.958779 10.651265,19.282221 C9.211905,14.167061 7.670943,11.610878 6.022735,11.610878 C5.664306,11.610878 4.414038,12.356781 2.25782,13.85138 L0,10.971134 C2.365066,8.917807 4.696265,6.856098 6.996419,4.799977 C10.146078,2.101318 12.513967,0.684941 14.094441,0.536878 C17.819844,0.179292 20.117175,2.701951 20.983614,8.096476 C21.906498,13.921221 22.555621,17.541782 22.91405,18.960952 C23.992159,23.788367 25.17187,26.196487 26.464472,26.196487 C27.466379,26.196487 28.973474,24.637634 30.982934,21.517135 C32.992393,18.391049 34.062036,16.016453 34.208794,14.379378 C34.496666,11.680719 33.421379,10.339771 30.982934,10.339771 C29.834268,10.339771 28.648912,10.580024 27.432512,11.08288 C29.803223,3.486965 34.318863,-0.206231 40.99072,0.00888 C45.932524,0.145768 48.266545,3.308172 47.975851,9.479329"></path></g></symbol><symbol id="youtube-logo" viewBox="0 0 48 34" xml:space="preserve"><title>YouTube</title><g><path d="M19.044,23.269916 L19.0425,9.687742 L32.0115,16.502244 L19.044,23.269916 Z M47.52,7.334163 C47.52,7.334163 47.0505,4.003199 45.612,2.536366 C43.7865,0.610299 41.7405,0.601235 40.803,0.489448 C34.086,0 24.0105,0 24.0105,0 L23.9895,0 C23.9895,0 13.914,0 7.197,0.489448 C6.258,0.601235 4.2135,0.610299 2.3865,2.536366 C0.948,4.003199 0.48,7.334163 0.48,7.334163 C0.48,7.334163 0,11.246723 0,15.157773 L0,18.82561 C0,22.73817 0.48,26.64922 0.48,26.64922 C0.48,26.64922 0.948,29.980184 2.3865,31.447016 C4.2135,33.373084 6.612,33.312658 7.68,33.513574 C11.52,33.885191 24,34 24,34 C24,34 34.086,33.984894 40.803,33.495446 C41.7405,33.382148 43.7865,33.373084 45.612,31.447016 C47.0505,29.980184 47.52,26.64922 47.52,26.64922 C47.52,26.64922 48,22.73817 48,18.82561 L48,15.157773 C48,11.246723 47.52,7.334163 47.52,7.334163 L47.52,7.334163 Z"></path></g></symbol></svg>
+												
+												<!-- define una serie de comandos a ser ejecutados que permiten realizar trazados y dibujos de tipo svg, tambien define diferentes titulos -->
+												
+<span class="social-icons-wrapper"><a href="http://twitter.com/jogdenuk" class="social-icon social-icon--twitter" target="_blank"><svg><use xlink:href="#twitter-logo"></use></svg></a><a href="http://dribbble.com/jogdenuk" class="social-icon social-icon--dribbble" target="_blank"><svg><use xlink:href="#dribbble-logo"></use></svg></a><a href="http://instagram.com/jogdenuk" class="social-icon social-icon--instagram" target="_blank"><svg><use xlink:href="#instagram-logo"></use></svg></a><a href="https://www.youtube.com/channel/UC5klUqmlo9G8U5iaQ53ogIA" class="social-icon social-icon--youtube" target="_blank"><svg><use xlink:href="#youtube-logo"></use></svg></a></span>
+<!-- define una nueva clase a la que le coloca un formato con span, y les coloca hojas de referencia con href hacia determinado recurso, en este caso, hacia el logo de twiter -->
+			</div>
+		</header>
+
+				<div id="content">
+			<div class="wrap">
+
+				
+									<div id="projects-feed" class="projects-feed clearfix">
+
+						
+																					
+							<article id="project-288451" class="project">
+								<a href="https://www.ogvidius.com/slow-down" title="Slow Down">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/580x0-9_cropped_1560279107_p1dd3thsnm1hl3mp5i1eml1ml43.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/580x0-9_cropped_1560279107_p1dd3thsnm1hl3mp5i1eml1ml43.jpg 2x" alt="Slow Down" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/slow-down" title="Slow Down">Slow Down</a></h2>
+								
+							</article>
+						
+															
+							<article id="project-288458" class="project">
+								<a href="https://www.ogvidius.com/something-real" title="Something Real">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1dd43ne21obm75adi0cr610jt3.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1dd43ne21obm75adi0cr610jt3.jpg 2x" alt="Something Real" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/something-real" title="Something Real">Something Real</a></h2>
+								
+							</article>
+						
+															
+							<article id="project-257789" class="project tag-collage tag-design">
+								<a href="https://www.ogvidius.com/what-are-you-looking-at" title="What Are You Looking At?">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1bnc0a9r9ujj1cok1tq613901b345.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1bnc0a9r9ujj1cok1tq613901b345.jpg 2x" alt="What Are You Looking At?" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/what-are-you-looking-at" title="What Are You Looking At?">What Are You Looking At?</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/collage">collage</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-168108" class="project tag-branding tag-design">
+								<a href="https://www.ogvidius.com/gather" title="Gather">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b8f90i641fdj58h1tsh1f4q1hep3.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b8f90i641fdj58h1tsh1f4q1hep3.jpg 2x" alt="Gather" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/gather" title="Gather">Gather</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/branding">branding</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-288461" class="project">
+								<a href="https://www.ogvidius.com/abstract-collages" title="Abstract Collages">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1dd45iljp11a118rrv1a1e8npk93.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1dd45iljp11a118rrv1a1e8npk93.jpg 2x" alt="Abstract Collages" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/abstract-collages" title="Abstract Collages">Abstract Collages</a></h2>
+								
+							</article>
+						
+															
+							<article id="project-104171" class="project tag-design tag-typography">
+								<a href="https://www.ogvidius.com/typographic-verses" title="Typographic Verses">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b4s3rd3lmaf1r4s191a28s1ji13.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b4s3rd3lmaf1r4s191a28s1ji13.jpg 2x" alt="Typographic Verses" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/typographic-verses" title="Typographic Verses">Typographic Verses</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/design">design</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/typography">typography</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-2656" class="project tag-collage tag-design">
+								<a href="https://www.ogvidius.com/misc-collages" title="Misc Collages">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p19fn8e9sqpl81f0k11ag1j32140o3.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p19fn8e9sqpl81f0k11ag1j32140o3.jpg 2x" alt="Misc Collages" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/misc-collages" title="Misc Collages">Misc Collages</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/collage">collage</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-241474" class="project tag-branding tag-design">
+								<a href="https://www.ogvidius.com/story-house-creative" title="Story House Creative">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b4th8u9uufh1vg61vo319sph94d.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b4th8u9uufh1vg61vo319sph94d.jpg 2x" alt="Story House Creative" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/story-house-creative" title="Story House Creative">Story House Creative</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/branding">branding</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-125319" class="project tag-album-art tag-collage tag-design tag-music">
+								<a href="https://www.ogvidius.com/all-things-new" title="All Things New">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p18m9okcai466112lq31ti814ch3.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p18m9okcai466112lq31ti814ch3.jpg 2x" alt="All Things New" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/all-things-new" title="All Things New">All Things New</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/album-art">album art</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/collage">collage</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/music">music</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-163382" class="project tag-design tag-typography">
+								<a href="https://www.ogvidius.com/the-beatitudes" title="The Beatitudes">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p198gibc28s3c7ra7dv1t6f1asp5.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p198gibc28s3c7ra7dv1t6f1asp5.jpg 2x" alt="The Beatitudes" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/the-beatitudes" title="The Beatitudes">The Beatitudes</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/design">design</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/typography">typography</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-241478" class="project tag-branding tag-design tag-print">
+								<a href="https://www.ogvidius.com/set-sail-2" title="Set Sail">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b8fa86q01k04379d43ja9fnc3.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b8fa86q01k04379d43ja9fnc3.jpg 2x" alt="Set Sail" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/set-sail-2" title="Set Sail">Set Sail</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/branding">branding</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/print">print</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-155846" class="project tag-album-art tag-design">
+								<a href="https://www.ogvidius.com/various-album-art" title="Various Album Art">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b541i6qjlcochdcfh141tip05.jpg 1x" alt="Various Album Art" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/various-album-art" title="Various Album Art">Various Album Art</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/album-art">album art</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-103768" class="project tag-collage tag-design">
+								<a href="https://www.ogvidius.com/rome-collages" title="Rome Collages">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b8faagh41bh5k6p1vc947j39q3.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b8faagh41bh5k6p1vc947j39q3.jpg 2x" alt="Rome Collages" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/rome-collages" title="Rome Collages">Rome Collages</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/collage">collage</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-157767" class="project tag-album-art tag-design">
+								<a href="https://www.ogvidius.com/comeamplive" title="Come&amp;amp;Live!">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b8fafvkl1gjtpq81fa3gq53b83.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b8fafvkl1gjtpq81fa3gq53b83.jpg 2x" alt="Come&amp;Live!" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/comeamplive" title="Come&amp;amp;Live!">Come&amp;Live!</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/album-art">album art</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a>																			</div>
+								
+							</article>
+						
+															
+							<article id="project-125924" class="project tag-branding tag-design tag-web">
+								<a href="https://www.ogvidius.com/closeupfm" title="closeup.fm">
+																			<div class="thumb">
+											<img srcset="https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-0_p1b8famtd91tpjosm144i1hj1fu03.jpg 1x, https://dunked.cdn.speedyrails.net/assets/prod/6471/290x0-3_p1b8famtd91tpjosm144i1hj1fu03.jpg 2x" alt="closeup.fm" width="290">
+										</div>
+																	</a>
+
+								<h2 class="title"><a href="https://www.ogvidius.com/closeupfm" title="closeup.fm">closeup.fm</a></h2>
+																	<div class="meta-data tags">
+																					
+											<a href="https://www.ogvidius.com/tag/branding">branding</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/design">design</a><span class="sep">,</span>																					
+											<a href="https://www.ogvidius.com/tag/web">web</a>																			</div>
+								
+							</article>
+						
+													
+						
+						
+					<!--END .projects-feed-->
+					</div>
+				
+							<!--END .wrap-->
+			</div>
+		<!--END #content-->
+		</div>
+	<!--END .content-wrapper-->
+	</div>
+
+		<footer id="footer">
+		<div class="wrap">
+			<p class="footer-text">© 2019 All rights reserved.<br /><a id="dunked-branding" href="http://dunked.com" target="_blank" class="dunked-branding">Powered by Dunked</a></p>
+		</div>
+	</footer>
+	
+		<script src="https://dunked.cdn.speedyrails.net/templates/mason/1/scripts/lib.min.js?cache=1492118943"></script>
+	<!-- BEGIN Analytics -->
+	<script>
+	    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+	    ga('create','UA-8563742-1','auto');ga('send','pageview')
+	</script>
+	<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+	<!-- END Analytics -->
+	<script id="dunked-admin-bar-script" data-base="https://www.ogvidius.com/" src="https://dunked.cdn.speedyrails.net/assets/dist/dunked-admin-bar.min.js"></script>
+</body>
+</html>
+
+
+    
+
+

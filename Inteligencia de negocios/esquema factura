@@ -1,0 +1,85 @@
+create table public.promocion (
+codigo varchar(20) not null primary key,
+descripcion varchar(20) not null
+)
+
+create table public.cliente (
+id_cliente integer not null primary key,
+nombre varchar(30),
+apellido varchar(30),
+genero varchar(10),
+telefono date,
+total float
+)
+
+create table public.cabeceraFactura (
+id_factura integer not null primary key,
+codigo_promocion varchar(20) REFERENCES public.promocion(codigo),
+id_cliente integer REFERENCES public.cliente(id_cliente),
+
+fecha date,
+total float
+)
+
+create table public.almacen (
+id_almacen integer not null primary key,
+direccion varchar(20),
+telefono varchar(20)
+)
+
+create table public.categoria (
+id_categoria integer not null primary key,
+nombre varchar(20)
+)
+
+
+create table public.producto (
+id_producto integer not null primary key,
+id_categoria integer references public.categoria(id_categoria),
+nombre varchar(50),
+precio float
+)
+
+
+create table public.almacenProducto (
+id_almacen_producto integer not null primary key,
+id_almacen integer REFERENCES public.almacen(id_almacen),
+id_producto integer REFERENCES public.producto(id_producto),
+fecha_ingreso date,
+fecha_salida date,
+total float
+)
+
+
+create table public.lineaDetalleFactura (
+id_detalle integer not null primary key,
+id_factura integer REFERENCES public.cabeceraFactura(id_factura),
+id_producto integer REFERENCES public.producto(id_producto),
+precio_producto float,
+cantidad integer
+)
+
+
+
+
+LLENAR EL TOTAL DE LA FACTURA
+
+test
+
+
+update public.cabeceraFactura set total = (SELECT sum(p.precio * lf.cantidad) as total
+	FROM public.lineadetallefactura as lf, public.producto as p
+	WHERE lf.id_producto = p.id_producto 
+	AND p.id_producto in (select distinct(id_producto) from public.lineadetallefactura)
+	GROUP BY lf.id_factura HAVING lf.id_factura = public.cabeceraFactura.id_factura)
+
+SELECT lf.id_producto, sum(p.precio * lf.cantidad) as total
+	FROM public.lineadetallefactura as lf, public.producto as p
+	WHERE lf.id_producto = p.id_producto 
+	AND p.id_producto in (select distinct(id_producto) from public.lineadetallefactura)
+	GROUP BY lf.id_producto;
+	
+select * FROM public.lineadetallefactura
+
+
+

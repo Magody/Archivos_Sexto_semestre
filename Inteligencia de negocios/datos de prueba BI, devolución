@@ -1,0 +1,94 @@
+INSERT INTO public.cliente(
+	cedula_cliente, nombre_cliente, apellido_cliente, email, telefono, genero)
+	VALUES 
+	('1720254224', 'Danny', 'Diaz', 'meliodasfistery@gmail.com', '0978654041', 'M'),
+	('1720254221', 'Veronica', 'Astudillo', 'veronica@mimail.com', '0978654042', 'F'),
+	('1720254222', 'Dario', 'Guaman', 'dario@gmail.com', '0978654043', 'M'),
+	('1720254223', 'Juan', 'Diaz', 'jugan@gmail.com', '0978654044', 'M'),
+	('1720254225', 'Kaiba', 'Guaman', 'kaiba@gmail.com', '0978654045', 'M'),
+	('1720254226', 'Seto', 'Lopez', 'seto@gmail.com', '0978654046', 'M'),
+	('1720254227', 'Juan', 'Chicaiza', 'juan@gmail.com', '0978654047', 'M'),
+	('1720254218', 'Jose', 'Vinueza', 'jose@gmail.com', '0978654048', 'M'),
+	('1720254239', 'Rodrigo', 'Burbano', 'rodrigo@gmail.com', '0978654049', 'M'),
+	('1720254244', 'Nicole', 'Hallo', 'nivole@gmail.com', '0978654011', 'F'),
+	('1720254254', 'Mayra', 'Pirca', 'mayra@gmail.com', '0978654021', 'F'),
+	('1720254264', 'Angie', 'Diaz', 'angie@mimail.com', '0978654031', 'F'),
+	('1720254274', 'Grace', 'Diaz', 'grace@mimail.com', '0978654051', 'F'),
+	('1720254284', 'Lesly', 'Tello', 'lesly@gmail.com', '0978654061', 'F'),
+	('1720254294', 'Andre', 'Arancibia', 'andre@gmail.com', '0978654071', 'F'),
+	('1720254299', 'Karla', 'Rojas', 'karla@mimail.com', '0978654081', 'F'),
+	('1720254288', 'Emma', 'Grannis', 'emma@gmail.com', '0978654091', 'F'),
+	('1720254277', 'Valentina', 'Arancibia', 'valentina@gmail.com', '0978654111', 'F'),
+	('1720254266', 'Entiqueta', 'Bermellon', 'enriqueta@gmail.com', '0978654221', 'F'),
+	('1720254255', 'Kleim', 'Tello', 'klein@gmail.com', '0978654331', 'M')
+	;
+	
+	
+	
+	
+	INSERT INTO public.devolucion(
+	id_devolucion, cedula_cliente, fecha, dia, mes, anio, ciudad, direccion)
+	VALUES (1, 1720254221, '2019-11-01', 1, 11, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(2, 1720254222, '2019-11-01', 1, 11, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(3, 1720254223, '2019-10-02', 2, 10, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(4, 1720254224, '2019-09-03', 3, 09, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(5, 1720254225, '2019-11-01', 1, 11, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(6, 1720254226, '2019-11-01', 1, 11, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(7, 1720254227, '2019-10-01', 1, 10, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(8, 1720254218, '2019-09-01', 1, 9, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(9, 1720254239, '2019-08-01', 1, 8, 2019, 'Quito', 'Av Cipreses y Arenal'),
+	(10, 1720254266, '2019-07-01', 1, 7, 2019, 'Quito', 'Av Cipreses y Arenal')
+	
+	;
+	
+	
+	INSERT INTO public.producto(
+	id_producto, nombre_producto, precio_producto, categoria_producto)
+	VALUES 
+	(1, 'Producto1', 15.67, 'Categoria1'),
+	(2, 'Producto2', 1.23, 'Categoria2'),
+	(3, 'Producto3', 3.45, 'Categoria3'),
+	(4, 'Producto4', 7.86, 'Categoria4'),
+	(5, 'Producto5', 0.99, 'Categoria1'),
+	(6, 'Producto6', 3.99, 'Categoria2'),
+	(7, 'Producto7', 4.99, 'Categoria5'),
+	(8, 'Producto8', 5.99, 'Categoria5'),
+	(9, 'Producto9', 9.99, 'Categoria4'),
+	(10, 'Producto10', 1.16, 'Categoria3'),
+	(11, 'Producto11', 75.50, 'Categoria6'),
+	(12, 'Producto12', 50.57, 'Categoria7'),
+	(13, 'Producto13', 40.56, 'Categoria8'),
+	(14, 'Producto14', 30.76, 'Categoria2'),
+	(15, 'Producto15', 7.50, 'Categoria3'),
+	(16, 'Producto16', 23.50, 'Categoria4'),
+	(17, 'Producto17', 40.50, 'Categoria8')
+	;
+	
+	
+	
+	
+	
+	INSERT INTO public.lineadetalledevolucion(
+	id_detalle_devolucion, id_producto, id_devolucion, cantidad)
+	VALUES 
+	(1, 1, 1, 1),
+	(2, 17, 1, 1),
+	(3, 2, 2, 1),
+	(4, 1, 2, 1),
+	(5, 17, 3, 2),
+	(6, 17, 4, 2),
+	(7, 1, 4, 1),
+	(8, 4, 5, 2),
+	(9, 5, 5, 1),
+	(10, 6, 5, 2),
+	(11, 17, 6, 2),
+	(12, 3, 7, 1),
+	(13, 4, 7, 2),
+	(14, 15, 8, 1),
+	(15, 17, 9, 2),
+	(16, 5, 9, 1),
+	(17, 6, 10, 2),
+	(18, 7, 10, 1),
+	(19, 17, 10, 2)
+	;
+	
