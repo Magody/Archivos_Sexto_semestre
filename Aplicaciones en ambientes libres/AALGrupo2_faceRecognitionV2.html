@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Detect Faces Sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: rgb(74, 99, 155);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .hide-display {
+            display: none;
+        }
+
+        .center {
+            margin: 0 auto;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <h1 class="text-center">Taller WeDo 2.0</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 ">
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <h2 class="text-center">Fases:</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <button id="btn-Explorar" class="btn btn-block btn-success my-2" onclick="cambiarFase(1)">
+                        Explorar
+                    </button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <button id="btn-etapa2" class="btn btn-block btn-warning my-2" onclick="cambiarFase(2)">
+                        Crear
+                    </button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <button id="btn-etapa3" class="btn btn-block btn-primary my-2" onclick="cambiarFase(3)">
+                        Compartir
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-9">
+            <div class="row ">
+                <div class="col-sm-4">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12">
+                            <h3 class="text-right">Fase Actual: </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12">
+                            <h3 id="h3-fase" class="text-left">Ninguna</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button id="estadoGrabacion" class="btn btn-block btn-danger" onclick="empezarVideo()">
+                        Iniciar Análisis
+                    </button>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <h3 class="text-left">En su webcam:</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+
+                    <video id="webcam_video" playsinline autoplay muted class="hide-display center"></video>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="row my-3">
+        <div class="col-sm-8">
+            <div id="jsonOutput" style="width:900px; height: 600px; display:table-cell;">
+                <h3 class="text-center">Resultados:</h3>
+                <textarea id="responseTextArea" class="UIInput w-100 h-100"
+                ></textarea>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="imageDiv" style="width:640px; display:table-cell;">
+                <h3 class="text-center">Imagen analizada:</h3>
+                <canvas class='img-responsive' id="canvas" width="580" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+
+    const URL_BASE = "https://deusgallet.000webhostapp.com/"
+    const URL_RECURSOS = "recursos/"
+
+    const tiempo = 15000; //ms
+    const imagen_ancho = 400;
+    const imagen_alto = 175;
+
+    const sesion_id = new Date().getTime();
+    var numero_foto = 1;
+    var grabando = false;
+    var parar = false;
+    var fase = "Ninguna";
+
+
+    var listaJson = []; //json a ser descargado
+    var grupoId = 1;
+    var phaseNumberDatabase = 0;
+
+    const video = document.getElementById('webcam_video')
+    const canvas = document.getElementById('canvas')
+    const context = canvas.getContext('2d');
+    const constraints = {
+        audio: true,
+        video: {
+            width: imagen_ancho, height: imagen_alto
+        }
+    }
+
+    function cambiarFase(id_fase) {
+        let h3Fase = document.getElementById('h3-fase');
+        phaseNumberDatabase = id_fase;
+        if (id_fase === 1) {
+            fase = "Explorar";
+            document.body.style.backgroundColor = '#66cc66';
+            h3Fase.innerText = fase;
+
+        } else if (id_fase === 2) {
+            fase = "Crear";
+            document.body.style.backgroundColor = '#ffdb4d';
+            h3Fase.innerText = fase;
+        } else {
+            fase = "Compartir";
+            document.body.style.backgroundColor = '#002db3';
+            h3Fase.innerText = fase;
+        }
+    }
+
+
+    async function empezarVideo() {
+        var boton = document.getElementById("estadoGrabacion");
+        var camara = document.getElementById("webcam_video");
+        //var cam_div = document.getElementById("cam_div")
+
+        if (!grabando) {
+            parar = false;
+            grabando = true;
+            boton.innerText = "Parar Análisis";
+            camara.style.display = "inline-block";
+            //  cam_div.style.display = "inline-block";
+            return new Promise(async resolve => {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints)
+                handleSuccesss(stream)
+            })
+        } else {
+            parar = true;
+            grabando = false;
+            camara.style.display = "none";
+            //cam_div.style.display = "none";
+            saveJson('importarMongoDb.json', 'text/plain');
+            boton.innerText = "Iniciar Análisis";
+        }
+
+        //console.log("parar", parar);
+
+    }
+
+    /*   async function init(){
+           try{
+              await empezarVideo();
+           //const stream = await navigator.mediaDevices.getUserMedia(constraints)
+             //  handleSuccesss(stream)
+           }catch(error){
+               alert(error.toString())
+           }
+       }*/
+
+    async function handleSuccesss(stream) {
+
+        window.stream = stream;
+        video.srcObject = stream;
+        //processImage();
+        while (true) {
+
+            await delay(tiempo);
+            if (parar) {
+                break;
+            }
+            processImage();
+        }
+
+    }
+
+    async function delay(ms) {
+        // return await for better async stack trace support in case of errors.
+        return await new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+	function descargar(data,nombre){
+		var a = document.createElement("a");
+		a.href = data;
+		a.download = nombre;
+		a.click();
+	}
+	
+
+    function processImage() {
+
+        /* Ekman emotions
+        Key 1: d9b62f5bd12847d6bb959d870abafb0a
+        Key 2: f2789e1a750d4fc7be518f50ddf7524b
+        */
+
+
+        var subscriptionKey = "d9b62f5bd12847d6bb959d870abafb0a";
+
+        var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+
+        // Request parameters.
+        var params = {
+            "returnFaceId": "true",
+            "returnFaceLandmarks": "false",
+            "returnFaceAttributes":
+                "age,gender,headPose,smile,facialHair,glasses,emotion," +
+                "hair,makeup,occlusion,accessories,blur,exposure,noise"
+        };
+
+        context.drawImage(video, 0, 0, imagen_ancho, imagen_alto);
+
+
+        var nombre_foto = "sesionid_" + sesion_id + fase + "_foto_" + numero_foto + ".png";
+
+		descargar(canvas.toDataURL(),nombre_foto);
+		
+        var sourceImageUrl = URL_BASE + URL_RECURSOS + nombre_foto; //document.getElementById("inputImage").value; canvas.toDataUrl()
+        //console.log(sourceImageUrl);
+        //console.log(canvas.toDataURL());
+
+        //guarda imagen
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState != 4) return;
+
+            if (this.status == 200) {
+
+                // Perform the REST API call.
+                $.ajax({
+                    url: uriBase + "?" + $.param(params),
+
+                    // Request headers.
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Content-Type", "application/json");
+                        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                    },
+
+                    type: "POST",
+
+                    // Request body.
+                    data: '{"url": ' + '"' + sourceImageUrl + '"}', // data: '{"url": ' + '"' + sourceImageUrl + '"}',
+                })
+
+				.done(function (data) {
+					// Show formatted JSON on webpage.
+					//document.getElementById("pictures-count").innerHTML = (numero_foto - 1) + " imagen(es) tomada(s)";
+
+					//dentro de un for ya que pueden ser varias caras.
+					//var timePhoto = new Date().toLocaleString("en-US", {timeZone: "America/Guayaquil"}); //mes/dia/año
+					var timePhoto = DameLaFechaHora()
+					//var f = timePhoto['idfoto']
+					var obj = {
+						"faceId": null,
+						"top": null,
+						"left": null,
+						"width": null,
+						"height": null,
+						"smile": null,
+						"pitch": null,
+						"roll": null,
+						"yaw": null,
+						"gender": null,
+						"age": null,
+						"moustache": null,
+						"beard": null,
+						"sideburns": null,
+						"glasses": null,
+						"anger": null,
+						"contempt": null,
+						"disgust": null,
+						"fear": null,
+						"happiness": null,
+						"neutral": null,
+						"sadness": null,
+						"surprise": null,
+						"blurLevel": null,
+						"blurlevelValue": null,
+						"exposureLevel": null,
+						"exposureLevelValue": null,
+						"noiseLevel": null,
+						"noiseLevelValue": null,
+						"eyeMakeup": null,
+						"lipMakeup": null,
+						"accessories": null,
+						"foreheadOccluded": null,
+						"eyeOccluded": null,
+						"mouthOccluded": null,
+						"bald": null,
+						"invisible": null,
+						"hairColor": null
+					};
+
+					//if(data.length > 0) {
+					if (data.length === 0) {
+						for (const prop in obj) {
+							obj[prop] = "n.a.";
+						}
+
+						obj["phase"] = phaseNumberDatabase;
+						obj["phaseName"] = timePhoto['fase'];
+						obj["group"] = grupoId;
+						obj["photoID"] = timePhoto['idfoto'];
+						obj["date"] = timePhoto['FechaHora'];
+						obj["imageURL"] = sourceImageUrl;
+						
+						listaJson.push(JSON.stringify(obj, null, 2));
+
+					} else {
+						for (var i = 0; i < data.length; i++) {
+							obj.faceId = data[i].faceId;
+							obj.top = data[i].faceRectangle.top;
+							obj.left = data[i].faceRectangle.left;
+							obj.width = data[i].faceRectangle.width;
+							obj.height = data[i].faceRectangle.height;
+							obj.smile = data[i].faceAttributes.smile;
+							obj.pitch = data[i].faceAttributes.headPose.pitch;
+							obj.roll = data[i].faceAttributes.headPose.roll;
+							obj.yaw = data[i].faceAttributes.headPose.yaw;
+							obj.gender = data[i].faceAttributes.gender;
+							obj.age = data[i].faceAttributes.age;
+							obj.moustache = data[i].faceAttributes.facialHair.moustache;
+							obj.beard = data[i].faceAttributes.facialHair.beard;
+							obj.sideburns = data[i].faceAttributes.facialHair.sideburns;
+							obj.glasses = data[i].faceAttributes.glasses;
+							obj.anger = data[i].faceAttributes.emotion.anger;
+							obj.contempt = data[i].faceAttributes.emotion.contempt;
+							obj.disgust = data[i].faceAttributes.emotion.disgust;
+							obj.fear = data[i].faceAttributes.emotion.fear;
+							obj.happiness = data[i].faceAttributes.emotion.happiness;
+							obj.neutral = data[i].faceAttributes.emotion.neutral;
+							obj.sadness = data[i].faceAttributes.emotion.sadness;
+							obj.surprise = data[i].faceAttributes.emotion.surprise;
+							obj.blurLevel = data[i].faceAttributes.blur.blurLevel;
+							obj.blurlevelValue = data[i].faceAttributes.blur.value;
+							obj.exposureLevel = data[i].faceAttributes.exposure.exposureLevel;
+							obj.exposureLevelValue = data[i].faceAttributes.exposure.value;
+							obj.noiseLevel = data[i].faceAttributes.noise.noiseLevel;
+							obj.noiseLevelValue = data[i].faceAttributes.noise.value;
+							obj.eyeMakeup = data[i].faceAttributes.makeup.eyeMakeup;
+							obj.lipMakeup = data[i].faceAttributes.makeup.lipMakeup;
+							obj.accessories = data[i].faceAttributes.accessories;
+							obj.foreheadOccluded = data[i].faceAttributes.occlusion.foreheadOccluded;
+							obj.eyeOccluded = data[i].faceAttributes.occlusion.eyeOccluded;
+							obj.mouthOccluded = data[i].faceAttributes.occlusion.mouthOccluded;
+							obj.bald = data[i].faceAttributes.hair.bald;
+							obj.invisible = data[i].faceAttributes.hair.invisible;
+							obj.hairColor = data[i].faceAttributes.hair.hairColor;
+
+							obj["phase"] = phaseNumberDatabase;
+							obj["phaseName"] = timePhoto['fase'];
+							obj["group"] = grupoId;
+							obj["photoID"] = timePhoto['idfoto'];
+							obj["date"] = timePhoto['FechaHora'];
+							obj["imageURL"] = sourceImageUrl;
+
+							
+							listaJson.push(JSON.stringify(obj, null, 2));
+						}
+					}
+					
+					// funcion para tomar fecha y hora actual y colocar en el json donde se almacena la informacion
+					// Show formatted JSON on webpage.
+					/*const infoExtra = DameLaFechaHora();
+					data.forEach(dato => {
+						dato.fechayhora = infoExtra.FechaHora;
+						dato.fase = infoExtra.fase;
+						dato.nombreFoto = infoExtra.idfoto;
+					});
+					console.log("Datos: ", data);*/
+					
+					console.log(data.length);
+					//$("#responseTextArea").val(JSON.stringify(data, null, 2));
+					numero_foto += 1;
+
+				})
+
+				.fail(function (jqXHR, textStatus, errorThrown) {
+					// Display error message.
+					var errorString = (errorThrown === "") ?
+						"Error. " : errorThrown + " (" + jqXHR.status + "): ";
+					errorString += (jqXHR.responseText === "") ?
+						"" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+							jQuery.parseJSON(jqXHR.responseText).message :
+							jQuery.parseJSON(jqXHR.responseText).error.message;
+					alert(errorString);
+				});
+
+            }
+
+            // end of state change: it can be after some time (async)
+        };
+
+        var data = canvas.toDataURL();
+        xhttp.open("POST", "https://deusgallet.000webhostapp.com/guardarImagen.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("data=" + data + "&nombre=" + nombre_foto)
+
+		//FUNCION QUE RETORNA FECHA Y HORA
+		function DameLaFechaHora() {
+			var hora = new Date()
+            var hrs = hora.getHours(); //obtiene hora
+            var min = hora.getMinutes(); //obtiene minutos
+            var sec = hora.getSeconds();  //obtiene segundos
+            var hoy = new Date(); //obtiene fecha
+            var m = new Array();  
+            var d = new Array()
+            var an= hoy.getFullYear();
+              
+            //diccionario de fecha y hora para guardar como info extra
+            infoExtra = {'fase': fase ,
+				'idfoto': nombre_foto,
+				'FechaHora': {'day': hoy.getDate(),
+				'month': hoy.getMonth()+1,
+				'year': hoy.getFullYear(),
+				'hour': hora.getHours(),
+				'minutes': hora.getMinutes(),
+				'seconds':hora.getMilliseconds()}
+            }
+            return infoExtra;
+		}
+
+    }
+
+    function saveJson(fileName, contentType) {
+        var a = document.createElement("a");
+        var file = new Blob([listaJson], {type: contentType});
+        a.href = URL.createObjectURL(file);
+        a.download = fileName;
+        a.click();
+    }
+
+
+    // init();
+
+</script>
+
+
+</body>
+</html>

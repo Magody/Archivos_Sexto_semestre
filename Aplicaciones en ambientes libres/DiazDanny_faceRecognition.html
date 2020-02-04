@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detect Faces Sample</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Detect Faces:</h1>
+Enter the URL to an image that includes a face or faces, then click
+the <strong>Analyze face</strong> button.<br><br>
+Image to analyze: <input type="text" name="inputImage" id="inputImage"
+    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+<button onclick="processImage()">Analyze face</button><br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:<br><br>
+        <textarea id="responseTextArea" class="UIInput"
+            style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:<br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var tiempo = 30000; //ms
+    var imagenes = [
+        "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", 
+        "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", 
+        "https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj4/cs194-26-adq/asianguy.jpg", 
+        "https://steemitimages.com/p/EEEoA8oLaAxsTkPYAARp78o5cJA1o6Chv9x98TzCFT6v5GzSgNSrek2mrGEULjaHfyNgCUG12gcqiHgDDeVfSvrek7wMk5SPxC9sLjwSJcA7JHBFJFWAedmwvV5dgqVTLnF6u4DCsbMUhqKXQnmVg?format=match&mode=fit&width=640", 
+        "https://facegen.com/images/modeller_photofit_1.jpg"];
+    var indice_imagen_actual = 0;
+    processImage();
+
+    var intervalo = setInterval(processImage, tiempo);
+
+    function processImage() {
+
+        alert("Analizando la imagen: "+(indice_imagen_actual+1));
+        /* Ekman emotions
+
+        Key 1: d9b62f5bd12847d6bb959d870abafb0a
+        Key 2: f2789e1a750d4fc7be518f50ddf7524b
+        */
+
+        
+
+        var subscriptionKey = "d9b62f5bd12847d6bb959d870abafb0a";
+    
+        var uriBase =
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        
+        
+    
+        // Request parameters.
+        var params = {
+            "returnFaceId": "true",
+            "returnFaceLandmarks": "false",
+            "returnFaceAttributes":
+                "age,gender,headPose,smile,facialHair,glasses,emotion," +
+                "hair,makeup,occlusion,accessories,blur,exposure,noise"
+        };
+    
+        // Display the image.
+        var sourceImageUrl = imagenes[indice_imagen_actual] //document.getElementById("inputImage").value;
+
+
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+    
+        // Perform the REST API call.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+    
+            // Request headers.
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+    
+            type: "POST",
+    
+            // Request body.
+            data: '{"url": ' + '"' +sourceImageUrl +'"}', // data: '{"url": ' + '"' + sourceImageUrl + '"}',
+        })
+    
+        .done(function(data) {
+            // Show formatted JSON on webpage.
+            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+        })
+    
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ?
+                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ?
+                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                    jQuery.parseJSON(jqXHR.responseText).message :
+                        jQuery.parseJSON(jqXHR.responseText).error.message;
+            alert(errorString);
+        });
+        indice_imagen_actual += 1;
+
+        if(indice_imagen_actual == imagenes.length){
+            indice_imagen_actual = 0;
+            clearInterval(intervalo);
+        }
+    };
+</script>
+
+
+    </body>
+</html>

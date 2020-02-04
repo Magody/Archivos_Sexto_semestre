@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <title>Detect Faces Sample</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: rgb(74, 99, 155);
+            }
+            text-center{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-sm">
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                        <h1 class="text-center">Detección de Emociones en el Rostro:</h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <h3 class="text-center">En su webcam:</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">  
+                    <div class="embed-responsive embed-responsive-16by9">
+                            <video id="webcam_video" playsinline autoplay muted></video>
+                    </div>
+                </div>
+                          
+            </div>
+
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                        <div id="jsonOutput" style="width:600px; display:table-cell;">
+                                <h3 class="text-center">Resultados:</h3>
+                                <textarea id="responseTextArea" class="UIInput"
+                                    style="width:580px; height:400px;"></textarea>
+                            </div>
+                </div>
+                <div class="col-sm-6">
+                        <div id="imageDiv" style="width:640; display:table-cell;">
+                                <h3 class="text-center">Imagen analizada:</h3>
+                                <canvas class='img-responsive' id="canvas" width="580" height="400"></canvas>
+                            </div>
+                </div>
+            </div>
+
+        </div>
+
+
+<script type="text/javascript">
+
+    const URL_BASE = "https://deusgallet.000webhostapp.com/"
+    const URL_RECURSOS = "recursos/"
+    
+    const tiempo = 10000; //ms
+    const imagen_ancho = 580;
+    const imagen_alto = 400;
+    
+    const sesion_id = new Date().getTime();
+    var numero_foto = 1;
+    
+    
+    const video = document.getElementById('webcam_video')
+    const canvas = document.getElementById('canvas')
+    const context = canvas.getContext('2d');
+    const constraints = {
+        audio: true,
+        video:{
+            width:imagen_ancho, height:imagen_alto
+        }
+    }
+
+
+    
+
+    async function init(){
+        try{
+            const stream = await navigator.mediaDevices.getUserMedia(constraints)
+            handleSuccesss(stream)
+        }catch(error){
+            alert(error.toString())
+        }
+    }
+
+    function startCounter(){
+        var timeleft = (tiempo/1000) - 1;
+        var downloadTimer = setInterval(function(){
+            document.getElementById("countdown").innerHTML = timeleft + " segundos para la siguinete foto";
+            
+            
+            
+            
+            timeleft -= 1;
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                startCounter();
+            }
+        }, 1000);
+    }
+
+
+    function handleSuccesss(stream){
+
+        window.stream = stream
+        video.srcObject = stream;
+        //startCounter()
+        //processImage();
+        setInterval(processImage, tiempo);
+    }
+    
+    
+    function processImage() {
+
+        /* Ekman emotions
+        Key 1: d9b62f5bd12847d6bb959d870abafb0a
+        Key 2: f2789e1a750d4fc7be518f50ddf7524b
+        */
+
+        
+
+        var subscriptionKey = "d9b62f5bd12847d6bb959d870abafb0a";
+    
+        var uriBase =
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        
+        
+    
+        // Request parameters.
+        var params = {
+            "returnFaceId": "true",
+            "returnFaceLandmarks": "false",
+            "returnFaceAttributes":
+                "age,gender,headPose,smile,facialHair,glasses,emotion," +
+                "hair,makeup,occlusion,accessories,blur,exposure,noise"
+        };
+    
+
+        context.drawImage(video, 0, 0, imagen_ancho, imagen_alto);
+        
+        
+        var nombre_foto = "sesionid_"+sesion_id+ "_foto_" + numero_foto + ".png";
+        
+        var sourceImageUrl =  URL_BASE+URL_RECURSOS+nombre_foto //document.getElementById("inputImage").value; canvas.toDataUrl()
+        console.log(sourceImageUrl);
+		console.log(canvas.toDataURL());
+		
+		//guarda imagen
+		
+		var xhttp = new XMLHttpRequest()
+	  
+		xhttp.onreadystatechange = function () {
+			if (this.readyState != 4) return;
+
+			if (this.status == 200) {
+				
+				// Perform the REST API call.
+				$.ajax({
+					url: uriBase + "?" + $.param(params),
+			
+					// Request headers.
+					beforeSend: function(xhrObj){
+						xhrObj.setRequestHeader("Content-Type","application/json");
+						xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+					},
+			
+					type: "POST",
+			
+					// Request body.
+					data: '{"url": ' + '"' +sourceImageUrl +'"}', // data: '{"url": ' + '"' + sourceImageUrl + '"}',
+				})
+			
+				.done(function(data) {
+					// Show formatted JSON on webpage.
+					//document.getElementById("pictures-count").innerHTML = (numero_foto - 1) + " imagen(es) tomada(s)";
+					
+					$("#responseTextArea").val(JSON.stringify(data, null, 2));
+					
+					numero_foto += 1;
+					
+				})
+			
+				.fail(function(jqXHR, textStatus, errorThrown) {
+					// Display error message.
+					var errorString = (errorThrown === "") ?
+						"Error. " : errorThrown + " (" + jqXHR.status + "): ";
+					errorString += (jqXHR.responseText === "") ?
+						"" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+							jQuery.parseJSON(jqXHR.responseText).message :
+								jQuery.parseJSON(jqXHR.responseText).error.message;
+					alert(errorString);
+				}); 
+				var respuesta = JSON.parse(this.responseText);
+				
+				console.log(respuesta);
+			}
+
+			// end of state change: it can be after some time (async)
+			};
+	  
+		var data = canvas.toDataURL();
+	    xhttp.open("POST", "https://deusgallet.000webhostapp.com/guardarImagen.php", true)
+	    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	    xhttp.send("data="+data+"&nombre="+nombre_foto)
+		
+        
+    };
+
+
+
+    init();
+
+</script>
+
+
+    </body>
+</html>
